@@ -10,6 +10,14 @@ interface Book {
 }
 
 export const handler: Handlers = {
+  /**
+   * Kitap listesini getirir.
+   *
+   * Bu endpoint, kitap listesini MongoDB'den alır ve
+   * kitap listesini içeren bir HTML sayfas  olu turur.
+   * @param _req HTTP iste i
+   * @param ctx Fresh'in Kontekst objesi
+   */
   async GET(_req, ctx) {
     const client = await connectDb();
     const books = await getBooks(client);
@@ -17,6 +25,22 @@ export const handler: Handlers = {
   },
 };
 
+/**
+ * Ana sayfa bileşeni.
+ *
+ * Bu bileşen, uygulama ana sayfasını oluşturur. Sayfa, bir adet "Island"
+ * bileşeni (Sayac.tsx), bir adet kitap listesi ve bir adet "BookList" bileşeni
+ * içerir.
+ *
+ * Kitap listesi, MongoDB veritabanından alınan kitap verilerini gösterir.
+ *
+ * Sayfada, "Fresh" ve "Deno" logoları yer alır. Ayrıca, sayfanın alt
+ * kısmında, uygulamanın kaynak kodlarına ulaşmak için bir bağlantı bulunur.
+ *
+ * @param {PageProps<{ books: Book[] }>} props - Bileşene verilen
+ * prop'lar. "books" prop'u, MongoDB veritabanından alınan kitap
+ * verilerini içerir.
+ */
 export default function Home({ data }: PageProps<{ books: Book[] }>) {
   const books = data.books;
 
@@ -32,7 +56,9 @@ export default function Home({ data }: PageProps<{ books: Book[] }>) {
       </div>
       <hr class="my-4" />
       <div>
-        <h2 class="text-2xl font-bold text-blue-600">Kitap Listesi (index.tsx)</h2>
+        <h2 class="text-2xl font-bold text-blue-600">
+          Kitap Listesi (index.tsx)
+        </h2>
         <dl class="bg-gray-100 p-4 rounded-lg border border-gray-200">
           {books.map((book) => (
             <dt key={book.ID}>
@@ -43,7 +69,7 @@ export default function Home({ data }: PageProps<{ books: Book[] }>) {
       </div>
       <hr class="my-4" />
       <BookList books={data.books} />
-<br />
+      <br />
       <div class="flex justify-center gap-2">
         <img
           src={"https://jsr.io/logos/deno.svg"}

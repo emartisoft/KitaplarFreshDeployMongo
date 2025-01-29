@@ -1,7 +1,13 @@
 // components/Sayac.tsx
-
 import { useState } from "preact/hooks";
 
+/**
+ * Sayaç bileşeni, bir sayacı gösterir ve kullanıcıya sayacı artırıp azaltma imkanı sağlar.
+ *
+ * Kullanıcı iki buton aracılığıyla sayacı birer birim artırabilir veya azaltabilir.
+ *
+ * Başlangıçta sayaç değeri 99 olarak ayarlanmıştır.
+ */
 export default function Sayac() {
   const [count, setCount] = useState(99);
 
