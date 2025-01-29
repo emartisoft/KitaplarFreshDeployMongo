@@ -14,3 +14,6 @@ deno task start
 ```
 
 This will watch the project directory and restart as necessary.
+
+### After deploy
+https://deno2fresh.deno.dev/
