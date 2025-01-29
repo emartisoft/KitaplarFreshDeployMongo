@@ -43,14 +43,36 @@ export default function Home({ data }: PageProps<{ books: Book[] }>) {
       </div>
       <hr class="my-4" />
       <BookList books={data.books} />
-      <p class="text-sm text-gray-500 mt-4 border-t border-gray-200 pt-2">
-        <div class="flex justify-center gap-2">
-      <img src={"https://jsr.io/logos/deno.svg"} alt="Deno Logo" width="32" height="32" />
-      <img src={"https://fresh.deno.dev/logo.svg"} alt="Fresh Logo" width="32" height="32" />
+<br />
+      <div class="flex justify-center gap-2">
+        <img
+          src={"https://jsr.io/logos/deno.svg"}
+          alt="Deno Logo"
+          width="32"
+          height="32"
+        />
+        <img
+          src={"https://fresh.deno.dev/logo.svg"}
+          alt="Fresh Logo"
+          width="32"
+          height="32"
+        />
       </div>
-        Bu uygulama <a class="underline" href="https://www.deno.com">Deno</a> kullanılarak <a class="underline" href="https://fresh.deno.dev">Fresh</a>
+      <p class="text-sm text-gray-500 mt-4 border-t border-gray-200 pt-2">
+        Bu uygulama <a class="underline" href="https://www.deno.com">Deno</a>
         {" "}
+        kullanılarak{" "}
+        <a class="underline" href="https://fresh.deno.dev">Fresh</a>{" "}
         ile yazılmıştır. MongoDB veritabanını kullanır.
+      </p>
+      <p class="text-sm text-gray-500 mt-4 border-t border-gray-200 pt-2">
+        Kaynak kodlarını incelemek için:{" "}
+        <a
+          class="underline"
+          href="https://github.com/emartisoft/KitaplarFreshDeployMongo"
+        >
+          https://github.com/emartisoft/KitaplarFreshDeployMongo
+        </a>
       </p>
       <br />
     </div>
